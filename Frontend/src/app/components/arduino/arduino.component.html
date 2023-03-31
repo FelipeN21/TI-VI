@@ -1,0 +1,22 @@
+<div *ngIf="showSpinner" class="spinner-class">
+    <mat-spinner></mat-spinner>
+</div>
+
+<content class="content">
+    <!-- Título -->
+    <mat-card class="tab-title">
+        <h1>BEM-VINDO AO TBSCAN</h1>
+        <h2>Aqui você pode enviar seu exâme de tuberculose e receber um possível diagnóstico</h2>
+    </mat-card>
+
+    <div class="content-div">
+        <mat-card class="card">
+            <input type="file" id="files" hidden/>
+            <label for="files" class="btn" id="texto-botao">Enviar</label>
+        </mat-card>
+    </div>
+
+    <img class="imagem" src="../../../assets/images/tuberculose2.jpg" >
+
+
+</content>
