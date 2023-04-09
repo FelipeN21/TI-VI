@@ -11,7 +11,7 @@
 
     <div class="content-div">
         <mat-card class="card">
-            <input type="file" id="files" hidden/>
+            <input type="file" id="files" class="file-upload" (change)="onFileSelected($event)" hidden/>
             <label for="files" class="btn" id="texto-botao">Enviar</label>
         </mat-card>
     </div>
