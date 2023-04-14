@@ -1,6 +1,7 @@
 import { getTreeNoValidDataSourceError } from '@angular/cdk/tree';
 import { Component, Input, OnInit } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
+import { ImagemDto } from 'src/app/Dtos/imagem-dto';
 import { Planta } from 'src/app/plantas/planta.model';
 import { Plantas } from 'src/app/plantas/plantas';
 import { AppService } from 'src/app/services/app.service';
@@ -21,29 +22,45 @@ export class ArduinoComponent implements OnInit {
   plantaSelecionada?: Planta;
   file:any;
   fileName = '';
+  imagem: ImagemDto = {
+    imagem: 0
+  };
+  
 
   constructor(private service: AppService) {}
 
   ngOnInit(): void {
-   
   }
 
+    async testRequest(imagem:any)
+    {
+      const bomb = await lastValueFrom(this.service.test(imagem));
+     // const bomb = await lastValueFrom(this.service.test2());
+
+      console.log(bomb)
+    }
 
 onFileSelected(event:any) {
-
+ // var conteudo;
   const file:File = event.target.files[0];
-
+  
   if (file) {
-
+      
       this.fileName = file.name;
       var reader = new FileReader();
       reader.readAsDataURL(file);
-      reader.onload = function () {
-      console.log(reader.result);
-    };
-    reader.onerror = function (error) {
-    console.log('Error: ', error);
-    };
+
+      reader.onload =  async (e) => {
+       // conteudo =  e.target?.result;
+          this.imagem.imagem = reader.result;
+
+          var object = {
+            imagem : this.imagem.imagem,
+          };
+
+        this.testRequest(object);
+        
+      };   
   }
 }
 

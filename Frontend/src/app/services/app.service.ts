@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as FileSaver from 'file-saver';
 import { map, Observable } from 'rxjs';
+import { ImagemDto } from '../Dtos/imagem-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -142,6 +143,22 @@ export class AppService {
 
   toggleLed(): Observable<any> {
     return this.http.get<any>(`${this.baseUlr}alterarLed`).pipe(
+      map((r) => {
+        return r;
+      })
+    );
+  }
+
+  test(imagem:any): Observable<any> {
+    return this.http.post<any>(`${this.baseUlr}receber`, imagem).pipe(
+      map((r) => {
+        return r;
+      })
+    );
+  }
+
+  test2(): Observable<any> {
+    return this.http.get<any>(`${this.baseUlr}oi`).pipe(
       map((r) => {
         return r;
       })
