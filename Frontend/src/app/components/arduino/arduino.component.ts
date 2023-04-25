@@ -58,10 +58,15 @@ onFileSelected(event:any) {
             imagem : this.imagem.imagem,
           };
 
-        this.testRequest(object);
-        
+        var a = this.testRequest(object);
+        this.popUp(a);
       };   
   }
+}
+
+private popUp(obj: any)
+{
+  console.log(obj);
 }
 
 
