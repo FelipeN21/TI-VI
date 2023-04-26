@@ -16,6 +16,18 @@
         </mat-card>
     </div>
 
+    <div *ngIf="resultadoStatus && status" class="content-div">
+        <mat-card class="card">
+           <a style="color: red">RESULTADO : Positivo com chance de: {{resultadoValor}}</a>
+        </mat-card>
+    </div>
+
+    <div *ngIf="resultadoStatus && !status" class="content-div">
+        <mat-card class="card">
+           <a style="color: green">RESULTADO : Positivo com chance de: {{resultadoValor}}</a>
+        </mat-card>
+    </div>
+
     <img class="imagem" src="../../../assets/images/tuberculose2.jpg" >
 
 

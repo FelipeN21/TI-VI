@@ -22,6 +22,10 @@ export class ArduinoComponent implements OnInit {
   plantaSelecionada?: Planta;
   file:any;
   fileName = '';
+  resultadoStatus = false;
+  resultadoText = null;
+  resultadoValor = "nulo";
+  status = true;
   imagem: ImagemDto = {
     imagem: 0
   };
@@ -35,13 +39,24 @@ export class ArduinoComponent implements OnInit {
     async testRequest(imagem:any)
     {
       const bomb = await lastValueFrom(this.service.test(imagem));
-     // const bomb = await lastValueFrom(this.service.test2());
 
-      console.log(bomb)
+      this.resultadoText = bomb.text;
+      this.resultadoValor = bomb.valor;
+  
+      this.resultadoValor = parseFloat(this.resultadoValor).toFixed(2)
+
+      if(parseFloat(this.resultadoValor) > 0,7)
+      this.status = true; 
+      else
+      this.status = false; 
+
+      this.resultadoStatus = true;
+      this.showSpinner = false;
     }
 
 onFileSelected(event:any) {
  // var conteudo;
+ this.showSpinner = true;
   const file:File = event.target.files[0];
   
   if (file) {
@@ -58,16 +73,12 @@ onFileSelected(event:any) {
             imagem : this.imagem.imagem,
           };
 
-        var a = this.testRequest(object);
-        this.popUp(a);
+        this.testRequest(object);
       };   
   }
 }
 
-private popUp(obj: any)
-{
-  console.log(obj);
-}
+
 
 
 
