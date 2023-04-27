@@ -26,6 +26,7 @@ export class ArduinoComponent implements OnInit {
   resultadoText = null;
   resultadoValor = "nulo";
   status = true;
+  percentageResult: any;
   imagem: ImagemDto = {
     imagem: 0
   };
@@ -43,12 +44,14 @@ export class ArduinoComponent implements OnInit {
       this.resultadoText = bomb.text;
       this.resultadoValor = bomb.valor;
   
-      this.resultadoValor = parseFloat(this.resultadoValor).toFixed(2)
+      this.resultadoValor = parseFloat(this.resultadoValor).toFixed(2);
 
       if(parseFloat(this.resultadoValor) > 0,7)
       this.status = true; 
       else
       this.status = false; 
+
+      this.percentageResult = parseFloat(this.resultadoValor) * 100;
 
       this.resultadoStatus = true;
       this.showSpinner = false;
@@ -68,7 +71,7 @@ onFileSelected(event:any) {
       reader.onload =  async (e) => {
        // conteudo =  e.target?.result;
           this.imagem.imagem = reader.result;
-
+        console.log(this.imagem.imagem)
           var object = {
             imagem : this.imagem.imagem,
           };
