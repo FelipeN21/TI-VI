@@ -18,13 +18,13 @@
 
     <div *ngIf="resultadoStatus && status" class="content-div">
         <mat-card class="card">
-           <a style="color: red; font-size: x-large;">RESULTADO : Positivo com chance de: {{percentageResult}}%</a>
+           <a style="color: red; font-size: x-large;">RESULTADO : Positivo com probabilidade de: {{percentageResult}}%</a>
         </mat-card>
     </div>
 
     <div *ngIf="resultadoStatus && !status" class="content-div">
         <mat-card class="card">
-           <a style="color: green; font-size: x-large;">RESULTADO : Negativo com chance de: {{percentageResult}}%</a>
+           <a style="color: green; font-size: x-large;">RESULTADO : Negativo com probabilidade de: {{percentageResult}}%</a>
         </mat-card>
     </div>
 
