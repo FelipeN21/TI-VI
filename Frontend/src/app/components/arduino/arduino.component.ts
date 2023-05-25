@@ -23,7 +23,7 @@ export class ArduinoComponent implements OnInit {
   file:any;
   fileName = '';
   resultadoStatus = false;
-  resultadoText = null;
+  resultadoText = "";
   resultadoValor = "nulo";
   status = true;
   percentageResult: any;
@@ -46,12 +46,14 @@ export class ArduinoComponent implements OnInit {
   
       this.resultadoValor = parseFloat(this.resultadoValor).toFixed(2);
 
-      if(parseFloat(this.resultadoValor) > 0,7)
-      this.status = true; 
-      else
+      if(this.resultadoText.includes("Não"))
       this.status = false; 
+      else
+      this.status = true; 
 
       this.percentageResult = parseFloat(this.resultadoValor) * 100;
+      if(this.percentageResult < 50)
+        this.percentageResult = (this.percentageResult - 100) * -1
 
       this.resultadoStatus = true;
       this.showSpinner = false;
