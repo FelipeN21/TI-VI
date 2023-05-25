@@ -16,6 +16,15 @@
   padding: 10px;
 }
 
+body{
+  background-color: antiquewhite ;
+  background-size: cover;
+}
+
+.campanha{
+  align-content: center;
+}
+
 .content-div {
   display: flex;
   flex-direction: column;
@@ -27,6 +36,18 @@
 }
 
 .tab-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: linear-gradient(#92AFD7, #C5D1EB);
+}
+
+.img-card{
+  background-color: antiquewhite;
+}
+
+.tab-title2 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -97,5 +118,6 @@
 }
 
 .imagem{
-
+max-height: 1300px;
+min-width: 1300px;
 }

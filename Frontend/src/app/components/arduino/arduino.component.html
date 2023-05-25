@@ -1,7 +1,7 @@
 <div *ngIf="showSpinner" class="spinner-class">
     <mat-spinner></mat-spinner>
 </div>
-
+<body>
 <content class="content">
     <!-- Título -->
     <mat-card class="tab-title">
@@ -18,17 +18,27 @@
 
     <div *ngIf="resultadoStatus && status" class="content-div">
         <mat-card class="card">
-           <a style="color: red; font-size: x-large;">RESULTADO : Positivo com probabilidade de: {{percentageResult}}%</a>
+           <a style="color: red; font-size:large; min-width: 450px;">RESULTADO : Positivo com probabilidade de: {{percentageResult}}%</a>
+           <a style="font-weight: bold; font-size: medium;"> Obs: O resultado apresentado não descarta a necessidade de visita ao médico, essa ferramenta almeja apenas fornecer um possível diagnóstico</a>
         </mat-card>
     </div>
 
     <div *ngIf="resultadoStatus && !status" class="content-div">
         <mat-card class="card">
-           <a style="color: green; font-size: x-large;">RESULTADO : Negativo com probabilidade de: {{percentageResult}}%</a>
+           <a style="color: green; font-size:large; min-width: 450px;">RESULTADO : Negativo com probabilidade de: {{percentageResult}}%</a>
+           <a style="font-weight: bold; font-size: medium;"> Obs: O resultado apresentado não descarta a necessidade de visita ao médico, essa ferramenta almeja apenas fornecer um possível diagnóstico</a>
         </mat-card>
     </div>
 
-    <img class="imagem" src="../../../assets/images/tuberculose2.jpg" >
+
+    <div class="img-card">
+        <H1 class="tab-title">Siga as campanhas:</H1>
+        <mat-card class="card img-card">
+            <img class="imagem" src="../../../assets/images/tuberculose3.jpg" >
+
+        </mat-card>
+    </div>
+    
 
 
-</content>
+</content></body>
